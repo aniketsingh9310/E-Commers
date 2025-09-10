@@ -14,6 +14,8 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import PlaceOrder from './pages/PlaceOrder.jsx'
 import Order from './pages/Order.jsx'
+ import { ToastContainer, toast } from 'react-toastify';
+
 
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
 
   return (
    <>
+     <ToastContainer />
    {userData && <Nav/>}
     <Routes>
       <Route path='/login' 

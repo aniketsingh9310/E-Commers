@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Title from '../components/Title'
 import CardTotal from '../components/CardTotal'
-import { SiRazorpay } from "react-icons/si";
 import { shopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/authContex';
 import axios from 'axios';
@@ -32,6 +31,28 @@ const onChangeHandler = (e) => {
   setFormData(data => ({ ...data, [name]: value }))
 }
 
+const initPay = (order) => {
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount: order.amount,
+      currency: order.currency,
+      name:'Order Payment',
+      description:'Order Payment',
+      order_id: order.id,
+      receipt:order.reciept,
+      handler:async (response) => {
+        console.log(response)
+        const {data} = await axios.post(serverUrl + '/api/order/verifyrazorpay',
+          response,{withCredentials:true})
+          if(data){
+            navigate("/order")
+            setCartItem({})
+          }
+      }
+    }
+     const rzp = new window.Razorpay(options)
+     rzp.open() 
+}
 
 const onSubmitHandler =async (e) => {
   e.preventDefault()
@@ -77,6 +98,14 @@ const onSubmitHandler =async (e) => {
         }else{
           console.log(result.data.message)
         }
+        break;
+
+        case 'razorpay':
+          const resultRazorpay = await axios.post(serverUrl +
+            "/api/order/razorpay",orderData,{withCredentials:true})
+            if(resultRazorpay.data){
+              initPay(resultRazorpay.data)
+            }
         break;
 
         default:

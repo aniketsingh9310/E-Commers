@@ -10,6 +10,8 @@ import axios from 'axios'
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
 import { userDataContext } from '../context/UserContex';
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
 
@@ -29,12 +31,15 @@ const Login = () => {
         email,password
       },{withCredentials:true})
       console.log(result.data) 
+      toast.success(" Login Successfully")
+      
       getCurrentUser()
       navigate("/")
       
 
     }catch(e){
       console.log("login error")
+      toast.error(" Login failed")
     }
   }
 

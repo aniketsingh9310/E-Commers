@@ -6,11 +6,13 @@ import Lists from './pages/Lists'
 import Order from './pages/Order'
 import Login from './pages/Login'
 import { adminDataContext } from './context/AdminContext'
+ import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
     let {adminData} = useContext(adminDataContext)
   return (
     <>
+      <ToastContainer />
     {!adminData ? <Login/> : <>
       <Routes>
         <Route path='/' element={<Home/>}/>

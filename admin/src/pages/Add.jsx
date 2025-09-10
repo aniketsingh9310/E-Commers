@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar'
 import upload from '../assets/upload.webp'
 import { authDataContext } from '../context/AuthContex'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const Add = () => {
 
@@ -20,9 +21,12 @@ const Add = () => {
   const [bestSeller,setBestSeller] = useState(false)
   
 
+  
+
   let {serverUrl} = useContext(authDataContext)
 
   const handleAddProduct = async (e)=>{
+  
       e.preventDefault()
       try{
         let formData = new FormData()
@@ -42,6 +46,7 @@ const Add = () => {
           {headers:{"Content-Type":"multipart/form-data"}})
           console.log(result.data)
 
+          toast.success("Add product succesfuly")
           if(result.data){
             setName("")
             setDescription("")
@@ -57,7 +62,8 @@ const Add = () => {
      
       }catch(e){
        console.log("add product error",e)
-       
+       toast.error("Add product failed")
+    
       }
   }
   return (
@@ -198,6 +204,7 @@ const Add = () => {
               </div>
               <button className='w-[140px] px-[20px] py-[20px] rounded-xl bg-[#65d8f7] flex itmes-center justify-center gap-[10px] cursor-pointer
               text-black active:bg-slate-700 active:text-white active:border-[2px] border-white'>
+           
                 Add Product
               </button>
             </form>

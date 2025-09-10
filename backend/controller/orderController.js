@@ -1,17 +1,14 @@
 import Order from "../model/orderModel.js";
 import User from "../model/userModel.js";
-import razorpay from 'razorpay'
+import Razorpay from 'razorpay'
+import dotenv from 'dotenv'
+dotenv.config()
 
-// const currency = 'inr'
-// const razorpayInstance = new razorpay({
-//     key_id:process.env.RAZORPAY_KEY_ID ,
-//     key_secret: process.env.RAZORPAY_KEY_SECRET,
-// })
-
-// console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID);
-// console.log("Razorpay Key Secret:", process.env.RAZORPAY_KEY_SECRET);
-
-
+const currency = 'inr'
+const razorpayInstance = new Razorpay({
+    key_id:process.env.RAZORPAY_KEY_ID,
+    key_secret:process.env.RAZORPAY_KEY_SECRET 
+})
 
 
 // user
@@ -44,39 +41,55 @@ export const placeOrder = async (req,res) =>{
 }
 
 
-// export const placeORderRazorpay = async (req,res) => {
-//             try{
-//                 const {items , amount , address} = req.body;
-//                 const userId = req.userId
-//                 const orderData = {
-//                     items,
-//                     amount,
-//                     userId,
-//                     address,
-//                     paymentMethod:'Razorpay',
-//                     payment:false,
-//                     date:Date.now()
-//                 }
+export const placeOrderRazorpay = async (req,res) =>{
+    try{
+        const {items, amount, address} = req.body;
+        const userId = req.userId;
+        const orderData = {
+            items,
+            amount,
+            userId,
+            address,
+            paymentMethod:'Razorpay',
+            payment:false,
+            date:Date.now()
+        }
 
-//                 const newOrder = new Order(orderData)
-//                 await newOrder.save()
+        const newOrder = new Order(orderData)
+        await newOrder.save()
 
-//                 const options = {
-//                     amount:amount * 100,
-//                     currency:currency.toUpperCase(),
-//                     receipt : newOrder._id.toString()
-//                 }
-//                 await razorpayInstance.orders.create(options,(error, order)=>{
-//                     if(error){
-//                         console.log(error)
-//                         return res.status(500).json(error)
-//                     }
-//                 })
+        const option = {
+            amount:amount * 100,
+            currency:currency.toUpperCase(),
+            receipt : newOrder._id.toString()
+        }
+        await razorpayInstance.orders.create(option,(error,order)=>{
+            if(error){
+                console.log(error)
+                return res.status(500).json(error)
+            }
+            res.status(200).json(order)
+        })
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message:error.message})
+    }
+}
 
-//             } catch(e){
+export const verifyRazorpay = async (req,res) =>{
+    try{
+        const userId = req.userId
+        const {razorpay_order_id} = req.body
+        const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+        if(orderInfo.status === 'paid'){
+            await Order.findByIdAndUpdate(orderInfo.receipt,{payment:true});
+            await User.findByIdAndUpdate(userId, {cartData:{}})
+            res.status(200).json({message:'Payment Successful'})
+        }
+    }catch(e){
 
-//             }
-//         }
+    }
+}
 
 export const userOrders = async (req,res) => {
     try{
