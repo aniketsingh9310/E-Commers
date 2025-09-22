@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import Title from '../components/Title'
 import CardTotal from '../components/CardTotal'
 import { shopDataContext } from '../context/ShopContext';
-import { authDataContext } from '../context/authContex';
+import { authDataContext } from '../context/AuthContex';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
