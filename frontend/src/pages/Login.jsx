@@ -18,7 +18,7 @@ const Login = () => {
   const [show,setShow] = useState("")
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-  const {serverUrl} = useContext(authDataContext)
+  const {serverUrl} = useContext(AuthDataContext)
   const {getCurrentUser} = useContext(userDataContext)
 
 
