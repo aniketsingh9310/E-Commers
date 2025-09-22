@@ -9,7 +9,7 @@ const Order = () => {
 
     let [orderData,setOrderData] = useState([])
     let {currency} = useContext(shopDataContext)
-    let {serverUrl} = useContext(authDataContext)
+    let {serverUrl} = useContext(AuthDataContext)
 
     const loadOrderData = async () =>{
         try{
