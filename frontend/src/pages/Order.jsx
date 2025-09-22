@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Title from '../components/Title'
 import { shopDataContext } from '../context/ShopContext'
-import { authDataContext } from '../context/authContex'
+import { authDataContext } from '../context/AuthContex'
 import { linkWithCredential } from 'firebase/auth'
 import axios from 'axios'
 
@@ -9,7 +9,7 @@ const Order = () => {
 
     let [orderData,setOrderData] = useState([])
     let {currency} = useContext(shopDataContext)
-    let {serverUrl} = useContext(AuthDataContext)
+    let {serverUrl} = useContext(authDataContext)
 
     const loadOrderData = async () =>{
         try{
