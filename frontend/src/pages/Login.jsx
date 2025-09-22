@@ -5,7 +5,7 @@ import Google from '../assets/google1.png'
 import { FaRegEye } from "react-icons/fa";
 import { FaEye } from "react-icons/fa6";
 import { useContext } from 'react';
-import { authDataContext } from '../context/authContex';
+import { authDataContext } from '../context/AuthContex';
 import axios from 'axios'
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
