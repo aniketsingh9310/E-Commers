@@ -143,11 +143,9 @@ const ShopContext = ({children}) => {
     }
 
   return (
-    <div>
         <ShopDataContext.Provider value={value}>
             {children}
         </ShopDataContext.Provider>
-    </div>
   )
 }
 
