@@ -5,7 +5,7 @@ import { userDataContext } from './UserContex'
 import { toast } from 'react-hot-toast'
 
 
-export const  shopDataContext = createContext()
+export const  ShopDataContext = createContext()
 const ShopContext = ({children}) => {
     
     const [products,setProducts] = useState([])
@@ -144,9 +144,9 @@ const ShopContext = ({children}) => {
 
   return (
     <div>
-        <shopDataContext.Provider value={value}>
+        <ShopDataContext.Provider value={value}>
             {children}
-        </shopDataContext.Provider>
+        </ShopDataContext.Provider>
     </div>
   )
 }
