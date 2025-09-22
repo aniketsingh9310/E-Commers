@@ -9,7 +9,7 @@ import { IoSearchCircle } from "react-icons/io5";
 import { HiOutlineCollection } from "react-icons/hi";
 import { MdContacts } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { authDataContext } from '../context/authContex';
+import { authDataContext } from '../context/AuthContex';
 import axios from 'axios';
 import { shopDataContext } from '../context/ShopContext';
 
