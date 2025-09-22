@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { authDataContext } from './AuthContex'
 import axios from 'axios'
-import { userDataContext } from './UserContex'
+import { userDataContext } from './UserContext'
 import { toast } from 'react-hot-toast'
 
 
