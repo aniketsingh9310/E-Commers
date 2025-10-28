@@ -9,7 +9,7 @@ import { authDataContext } from '../context/AuthContex';
 import axios from  'axios'
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
-import { userDataContext } from '../context/UserContex';
+import { userDataContext } from '../context/UserContext';
 
 const Registration = () => {
 

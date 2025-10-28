@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Title from '../components/Title'
 import CardTotal from '../components/CardTotal'
-import { shopDataContext } from '../context/ShopContext';
+import { ShopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/AuthContex';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
@@ -11,7 +11,7 @@ const PlaceOrder = () => {
     let [method,setMethod] = useState('cod')
     let navigate = useNavigate()
     const {cartItem, setCartItem, getCartAmount, delievery_fee, products}
-    = useContext(shopDataContext)
+    = useContext(ShopDataContext)
     let {serverUrl} = useContext(authDataContext)
     let [formData,setFormData] = useState({
       firstName:'',

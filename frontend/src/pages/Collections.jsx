@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 import Title from '../components/Title';
-import { shopDataContext } from '../context/ShopContext';
+import { ShopDataContext } from '../context/ShopContext';
 import Card from '../components/Card';
 
 
 const Collections = () => {
 
   const [showFilter,setShowFilter] = useState(false)
-  let {products,search,showSearch} = useContext(shopDataContext)
+  let {products,search,showSearch} = useContext(ShopDataContext)
   const [filterProduct,setFilterProduct] = useState([])
   const [category,setCategory] = useState([])
   const [subCategory,setSubCategory] = useState([])

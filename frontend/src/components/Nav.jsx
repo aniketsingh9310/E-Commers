@@ -3,7 +3,7 @@ import logo from '../assets/vcart logo.png'
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { userDataContext } from '../context/UserContex';
+import { userDataContext } from '../context/UserContext';
 import { IoHome } from "react-icons/io5";
 import { IoSearchCircle } from "react-icons/io5";
 import { HiOutlineCollection } from "react-icons/hi";
@@ -11,13 +11,13 @@ import { MdContacts } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { authDataContext } from '../context/AuthContex';
 import axios from 'axios';
-import { shopDataContext } from '../context/ShopContext';
+import { ShopDataContext } from '../context/ShopContext';
 
 
 const Nav = () => {
     let {setUserData ,userData} = useContext(userDataContext)
     let {serverUrl} = useContext(authDataContext)
-    let {showSearch,setShowSeacrh,search,setSearch,getCartCount} = useContext(shopDataContext)
+    let {showSearch,setShowSeacrh,search,setSearch,getCartCount} = useContext(ShopDataContext)
     let [showProfile,setShowProfile] = useState(false)
     let navigate = useNavigate()
 

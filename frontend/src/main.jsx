@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import AuthContex from './context/AuthContex.jsx'
-import UserContex from './context/UserContex.jsx'
+import UserContex from './context/UserContext.jsx'
 import ShopContext from './context/ShopContext.jsx'
 
 createRoot(document.getElementById('root')).render(

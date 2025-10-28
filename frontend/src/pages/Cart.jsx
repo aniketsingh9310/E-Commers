@@ -1,6 +1,6 @@
 import React, { useContext, useState , useEffect} from 'react'
 import Title from '../components/Title'
-import { shopDataContext } from '../context/ShopContext'
+import { ShopDataContext } from '../context/ShopContext'
 import { MdDeleteOutline } from "react-icons/md";
 import CardTotal from '../components/CardTotal';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-    const {products, currency, cartItem, updateQuantity} = useContext(shopDataContext)
+    const {products, currency, cartItem, updateQuantity} = useContext(ShopDataContext)
     const [cartData, setCartData] = useState([])
     const navigate = useNavigate()
 

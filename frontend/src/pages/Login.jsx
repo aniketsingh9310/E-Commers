@@ -9,7 +9,7 @@ import { authDataContext } from '../context/AuthContex';
 import axios from 'axios'
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
-import { userDataContext } from '../context/UserContex';
+import { userDataContext } from '../context/UserContext';
 import { toast } from 'react-toastify';
 
 
@@ -18,7 +18,7 @@ const Login = () => {
   const [show,setShow] = useState("")
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-  const {serverUrl} = useContext(AuthDataContext)
+  const {serverUrl} = useContext(authDataContext)
   const {getCurrentUser} = useContext(userDataContext)
 
 

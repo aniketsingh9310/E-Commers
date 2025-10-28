@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { shopDataContext } from '../context/ShopContext'
+import { ShopDataContext } from '../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
 
 const Card = ({name, image, id, price}) => {
 
-    let {currency} = useContext(shopDataContext)
+    let {currency} = useContext(ShopDataContext)
     let navigate = useNavigate()
 
   return (

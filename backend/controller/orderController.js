@@ -35,7 +35,7 @@ export const placeOrder = async (req,res) =>{
         return res.status(201).json({message:'Order Place'})
 
     }catch(e){
-        console.log(e)
+        console.log(e) 
         res.status(500).json({message:'order Place error'})
     }
 }

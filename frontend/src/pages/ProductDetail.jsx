@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { shopDataContext } from '../context/ShopContext'
+import { ShopDataContext } from '../context/ShopContext'
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import RelatedProducts from '../components/RelatedProducts';
 
 const ProductDetail = () => {
     let {productId} = useParams()
-    let {products,currency,addtoCart} = useContext(shopDataContext)
+    let {products,currency,addtoCart} = useContext(ShopDataContext)
     
     const [productData,setProductData] = useState(false)
     const [image,setImage] = useState('')

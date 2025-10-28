@@ -1,13 +1,13 @@
 import React from 'react'
 import Title from './Title'
 import { useContext } from 'react'
-import { shopDataContext } from '../context/ShopContext'
+import { ShopDataContext } from '../context/ShopContext'
 
 
 
 const CardTotal = () => {
 
-    const {currency, delievery_fee, getCartAmount} = useContext(shopDataContext)
+    const {currency, delievery_fee, getCartAmount} = useContext(ShopDataContext)
 
   return (
     <div className='w-full lg:ml--[30px]' >

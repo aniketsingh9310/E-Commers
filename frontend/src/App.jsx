@@ -4,7 +4,7 @@ import Registration from './pages/Registration.jsx'
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import Nav from './components/Nav.jsx'
-import { userDataContext } from './context/UserContex.jsx'
+import { userDataContext } from './context/UserContext.jsx'
 import { useContext } from "react";
 import About from './pages/About.jsx'
 import Collections from './pages/Collections.jsx'
@@ -14,7 +14,7 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import PlaceOrder from './pages/PlaceOrder.jsx'
 import Order from './pages/Order.jsx'
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
