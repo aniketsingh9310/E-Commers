@@ -20,7 +20,7 @@ let app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:["https://e-commers-frontend-g40u.onrender.com","https://e-commers-admin.onrender.com"],
+    origin:["https://e-commers-1-frontend.onrender.com","https://e-commers-admin.onrender.com"],
     credentials:true
 }))
 
