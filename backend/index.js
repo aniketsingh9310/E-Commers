@@ -24,11 +24,19 @@ app.use(cors({
     credentials:true
 }))
 
+app.get("/health",(req,res)=>{
+    return res.json({
+        message: "server is run"
+    })
+})
+
 app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoutes)
 app.use("/api/product",productRoutes)
 app.use("/api/cart",cartRoutes)
 app.use("/api/order",orderRoutes)
+
+
 
 
 
