@@ -27,6 +27,7 @@ const Login = () => {
   const handleLogin = async (e) =>{
     e.preventDefault()
     try{
+      console.log("valuee ==>",email,password)
       let result =  await axios.post(serverUrl + '/api/auth/login',{
         email,password
       },{withCredentials:true})
