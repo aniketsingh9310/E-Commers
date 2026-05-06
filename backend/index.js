@@ -23,7 +23,7 @@ app.use(cookieParser())
 app.use(cors({
     origin:[
       "https://e-commers-nu-ten.vercel.app",
-      "https://e-commers-admin-ten.vercel.app/"
+      "https://e-commers-admin-ten.vercel.app"
     ],
     credentials:true
 }))
