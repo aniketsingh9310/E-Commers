@@ -20,7 +20,7 @@ let app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"https://e-commers-nu-ten.vercel.app",
+    origin:"https://e-commers-nu-ten.vercel.app","https://e-commers-admin-ten.vercel.app",
     credentials:true
 }))
 
