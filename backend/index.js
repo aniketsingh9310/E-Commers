@@ -20,7 +20,7 @@ let app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"https://e-commers-frontend-l8h4.onrender.com",
+    origin:"https://e-commers-nu-ten.vercel.app",
     credentials:true
 }))
 
