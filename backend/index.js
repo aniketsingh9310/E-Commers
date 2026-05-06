@@ -20,22 +20,13 @@ let app = express()
 app.use(express.json())
 app.use(cookieParser())
 
-
-const allowedOrigins = [
-  "https://e-commers-frontend-l8h4.onrender.com", 
-  "https://e-commers-admin-ten.vercel.app"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS not allowed"));
-    }
-  },
-  credentials: true
-}));
+    origin:[
+      "https://e-commers-nu-ten.vercel.app",
+      "https://e-commers-admin-ten.vercel.app/"
+    ],
+    credentials:true
+}))
 
 app.get("/health",(req,res)=>{
     return res.json({
